@@ -65,24 +65,9 @@ describe('Cats Controller', () => {
   });
 
   describe('findAll()', () => {
-    it('should return an array of cats', async () => {
-      expect(controller.findAll()).resolves.toEqual([
-        {
-          name: 'Cat #1',
-          breed: 'Bread #1',
-          age: 4,
-        },
-        {
-          name: 'Cat #2',
-          breed: 'Breed #2',
-          age: 3,
-        },
-        {
-          name: 'Cat #3',
-          breed: 'Breed #3',
-          age: 2,
-        },
-      ]);
+    it('should return Success code 1000', async () => {
+      const result = await controller.findAll()
+      expect(result.status.code).toEqual(1000);
       expect(service.findAll).toHaveBeenCalled();
     });
   });
